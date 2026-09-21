@@ -74,34 +74,30 @@ export const HomePage: React.FC<HomePageProps> = ({
   return (
     <div className="space-y-12 pb-16">
       
-      {/* Hero Section: Refined Engineering Hero Composition */}
-      <GlassCard className="p-8 sm:p-12 border-white/20 overflow-hidden relative shadow-2xl">
-        {/* Subtle radial ambient glows */}
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-white/5 blur-3xl rounded-full pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-white/5 blur-3xl rounded-full pointer-events-none" />
-
+      {/* Hero Section: Professional Engineering Hero Composition */}
+      <GlassCard className="p-8 sm:p-12 border-white/10 overflow-hidden relative shadow-xl">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative z-10">
           
-          {/* Left Column: Brand Identity & High Contrast Headline */}
-          <div className="lg:col-span-7 space-y-6">
-            <GlassChip active color="slate" icon={<Sparkles className="w-3.5 h-3.5 text-white" />}>
+          {/* Left Column: Technical Brand Identity & Clean Inter Heading */}
+          <div className="lg:col-span-7 space-y-6 font-sans">
+            <GlassChip active color="cyan" icon={<Sparkles className="w-3.5 h-3.5 text-cyan-400" />}>
               NEXT-GEN HARDWARE ENGINEERING LAB
             </GlassChip>
 
             <div className="space-y-3">
-              <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-tight">
+              <h1 className="text-4xl sm:text-6xl font-extrabold tracking-[-0.04em] text-slate-100 leading-[0.98]">
                 Engineer your dream PC.
               </h1>
-              <div className="text-xl sm:text-2xl font-mono text-zinc-300 font-semibold tracking-wide flex items-center gap-2">
+              <div className="text-lg sm:text-xl font-semibold tracking-normal text-cyan-400 flex items-center gap-2 pt-1">
                 <span>Build.</span>
-                <span className="text-zinc-600">•</span>
+                <span className="text-slate-600">•</span>
                 <span>Analyze.</span>
-                <span className="text-zinc-600">•</span>
+                <span className="text-slate-600">•</span>
                 <span>Optimize.</span>
               </div>
             </div>
 
-            <p className="text-zinc-300 text-sm sm:text-base leading-relaxed max-w-2xl">
+            <p className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl font-normal">
               Real-time hardware compatibility, bottleneck analysis, FPS estimation, thermal analysis, power analysis, and performance insights.
             </p>
 
@@ -109,17 +105,17 @@ export const HomePage: React.FC<HomePageProps> = ({
               <GlassButton
                 variant="primary"
                 size="lg"
-                icon={<Cpu className="w-4 h-4 text-black" />}
+                icon={<Cpu className="w-4 h-4 text-slate-950" />}
                 onClick={() => onNavigate('builder')}
               >
                 <span>BUILD YOUR PC</span>
-                <ArrowRight className="w-4 h-4 ml-1 text-black" />
+                <ArrowRight className="w-4 h-4 ml-1 text-slate-950" />
               </GlassButton>
 
               <GlassButton
                 variant="secondary"
                 size="lg"
-                icon={<Gamepad2 className="w-4 h-4 text-white" />}
+                icon={<Gamepad2 className="w-4 h-4 text-slate-300" />}
                 onClick={() => onNavigate('fps')}
               >
                 <span>ANALYZE PERFORMANCE</span>
@@ -128,69 +124,69 @@ export const HomePage: React.FC<HomePageProps> = ({
               <GlassButton
                 variant="secondary"
                 size="lg"
-                icon={<Scale className="w-4 h-4 text-white" />}
+                icon={<Scale className="w-4 h-4 text-slate-300" />}
                 onClick={() => onNavigate('compare')}
               >
                 <span>COMPARE HARDWARE</span>
               </GlassButton>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-6 border-t border-white/10 font-mono text-xs text-zinc-300">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-6 border-t border-white/10 font-sans text-xs text-slate-400 font-medium">
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-white shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
                 <span>Socket & Clearance Check</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-white shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0" />
                 <span>Multi-Workload Analysis</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-white shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-purple-400 shrink-0" />
                 <span>Empirical Benchmark Data</span>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Live Telemetry Glass Panel */}
+          {/* Right Column: Active Telemetry Glass Panel */}
           <div className="lg:col-span-5 w-full">
-            <GlassCard variant="subtle" className="p-6 font-mono border-white/20 space-y-5 shadow-2xl backdrop-blur-2xl">
-              <div className="flex items-center justify-between border-b border-white/10 pb-3">
-                <div className="flex items-center gap-2 text-xs font-bold text-white tracking-wider">
-                  <Zap className="w-4 h-4 text-white" />
+            <GlassCard variant="subtle" className="p-6 border-white/10 space-y-4 shadow-xl backdrop-blur-xl">
+              <div className="flex items-center justify-between border-b border-white/10 pb-3 font-sans">
+                <div className="flex items-center gap-2 text-xs font-semibold text-slate-200 tracking-wider uppercase">
+                  <Zap className="w-4 h-4 text-cyan-400" />
                   <span>ACTIVE BUILD TELEMETRY</span>
                 </div>
-                <GlassChip active color="slate">LIVE STATE</GlassChip>
+                <GlassChip active color="cyan">LIVE STATE</GlassChip>
               </div>
 
-              {/* Status List */}
-              <div className="space-y-3 text-xs">
-                <div className="flex items-center justify-between p-2.5 rounded-xl bg-zinc-950/80 border border-white/10">
-                  <span className="text-zinc-400">Compatibility Verification</span>
+              {/* Status List with JetBrains Mono numbers */}
+              <div className="space-y-2.5 text-xs font-sans">
+                <div className="flex items-center justify-between p-2.5 rounded-lg bg-slate-950/60 border border-white/10">
+                  <span className="text-slate-400 font-medium">Compatibility Verification</span>
                   {compatibility.overallStatus === 'compatible' ? (
-                    <span className="flex items-center gap-1.5 text-white font-bold">
-                      <CheckCircle2 className="w-4 h-4 text-white" />
+                    <span className="flex items-center gap-1.5 text-emerald-400 font-semibold font-mono">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
                       Compatible
                     </span>
                   ) : (
-                    <span className="text-zinc-300 font-bold">Check Required</span>
+                    <span className="text-amber-400 font-semibold font-mono">Check Required</span>
                   )}
                 </div>
 
-                <div className="flex items-center justify-between p-2.5 rounded-xl bg-zinc-950/80 border border-white/10">
-                  <span className="text-zinc-400">Estimated Power Load</span>
-                  <span className="text-white font-bold">
+                <div className="flex items-center justify-between p-2.5 rounded-lg bg-slate-950/60 border border-white/10">
+                  <span className="text-slate-400 font-medium">Estimated Power Load</span>
+                  <span className="text-amber-400 font-semibold font-mono">
                     ⚡ <AnimatedNumber value={compatibility.totalWattageW} suffix="W" />
                   </span>
                 </div>
 
-                <div className="flex items-center justify-between p-2.5 rounded-xl bg-zinc-950/80 border border-white/10">
-                  <span className="text-zinc-400">System Limiter State</span>
-                  <span className="text-white font-bold">{fpsPreview.primaryLimiter}</span>
+                <div className="flex items-center justify-between p-2.5 rounded-lg bg-slate-950/60 border border-white/10">
+                  <span className="text-slate-400 font-medium">System Limiter State</span>
+                  <span className="text-cyan-300 font-semibold font-mono">{fpsPreview.primaryLimiter}</span>
                 </div>
 
-                <div className="flex items-center justify-between p-2.5 rounded-xl bg-zinc-950/80 border border-white/10">
-                  <span className="text-zinc-400">1440p Framerate Estimate</span>
-                  <span className="text-white font-bold">
+                <div className="flex items-center justify-between p-2.5 rounded-lg bg-slate-950/60 border border-white/10">
+                  <span className="text-slate-400 font-medium">1440p Framerate Estimate</span>
+                  <span className="text-emerald-400 font-semibold font-mono">
                     <AnimatedNumber value={fpsPreview.avgFps} suffix=" FPS" />
                   </span>
                 </div>
@@ -199,7 +195,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               {/* Quick Jump Action */}
               <button
                 onClick={() => onNavigate('builder')}
-                className="w-full py-2.5 px-4 rounded-xl bg-white/10 hover:bg-white/20 text-white border border-white/30 text-xs font-bold transition active:scale-95 flex items-center justify-center gap-2"
+                className="w-full py-2 px-4 rounded-lg bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 text-xs font-semibold font-sans transition active:scale-95 flex items-center justify-center gap-2 mt-2"
               >
                 <span>OPEN SYSTEM IN BUILDER</span>
                 <ArrowRight className="w-3.5 h-3.5" />
