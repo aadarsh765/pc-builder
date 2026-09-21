@@ -3,6 +3,8 @@
 > **Build. Analyze. Optimize.**  
 > RIGLAB is a technical PC engineering laboratory and hardware performance analysis platform designed for real-time compatibility verification, bottleneck visualizers, multi-resolution framerate estimation, thermal diagnostics, and target spec generation.
 
+🌐 **Live Application**: [https://pc-builder-peach.vercel.app/](https://pc-builder-peach.vercel.app/)
+
 ---
 
 ## 🌟 Key Features
@@ -25,6 +27,7 @@
 * **Icons**: Lucide React
 * **Typography**: ROUND 8-FOUR Webfont (`/fonts/round8-four-webfont.woff2`) & System Sans
 * **State Management**: React Hooks & Local Storage
+* **Deployment**: Vercel
 
 ---
 
@@ -62,23 +65,6 @@ npm run build
 # Preview production build locally
 npm run preview
 ```
-
----
-
-## 🌐 Deploy Live Web Page
-
-You can deploy RIGLAB instantly for free using Vercel, Netlify, or GitHub Pages:
-
-### Deploy to Vercel (Recommended — 1 Click)
-1. Go to [Vercel New Project](https://vercel.com/new).
-2. Import your GitHub repository: `aadarsh765/pc-builder`.
-3. Click **Deploy**. Vercel will automatically build the Vite app and issue a live URL (e.g., `https://pc-builder-xxx.vercel.app`).
-
-### Deploy to Netlify
-1. Log into [Netlify Dashboard](https://app.netlify.com/).
-2. Select **Import from Git** -> Choose `aadarsh765/pc-builder`.
-3. Set Build Command: `npm run build` and Publish directory: `dist`.
-4. Click **Deploy Site**.
 
 ---
 
