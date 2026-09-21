@@ -71,17 +71,17 @@ export const Navbar: React.FC<NavbarProps> = ({
             onClick={() => setActiveTab('home')}
             className="flex items-center gap-3 cursor-pointer group shrink-0"
           >
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center shadow-lg shadow-cyan-500/25 group-hover:scale-105 group-active:scale-95 transition-all duration-200 border-t border-white/30">
-              <Cpu className="w-6 h-6 text-slate-950 stroke-[2.5]" />
+            <div className="w-10 h-10 rounded-xl bg-white text-black flex items-center justify-center shadow-lg shadow-white/10 group-hover:scale-105 group-active:scale-95 transition-all duration-200 border border-white">
+              <Cpu className="w-6 h-6 text-black stroke-[2.5]" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="font-brand font-bold text-xl tracking-wider text-white">RIGLAB</span>
-                <span className="text-[9px] font-mono uppercase tracking-widest px-1.5 py-0.5 rounded bg-cyan-950/80 text-cyan-400 border border-cyan-500/30 backdrop-blur-md">
+                <span className="font-sans font-black text-xl tracking-widest text-white">RIGLAB</span>
+                <span className="text-[9px] font-mono uppercase tracking-widest px-1.5 py-0.5 rounded bg-white/10 text-white border border-white/20 backdrop-blur-md">
                   v2.4
                 </span>
               </div>
-              <p className="text-[9px] text-slate-400 tracking-widest uppercase font-mono">ENGINEERING & ANALYSIS</p>
+              <p className="text-[9px] text-zinc-400 tracking-widest uppercase font-mono">ENGINEERING & ANALYSIS</p>
             </div>
           </div>
 
@@ -96,11 +96,11 @@ export const Navbar: React.FC<NavbarProps> = ({
                   onClick={() => setActiveTab(item.id)}
                   className={`flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-medium transition-all duration-200 active:scale-95 ${
                     isActive
-                      ? 'bg-gradient-to-r from-cyan-500/20 to-blue-500/15 text-cyan-300 border border-cyan-500/40 shadow-[0_0_15px_-3px_rgba(6,182,212,0.3)]'
-                      : 'text-slate-400 hover:text-slate-200 hover:bg-white/5 border border-transparent'
+                      ? 'bg-white/15 text-white border border-white/35 shadow-[0_0_15px_-3px_rgba(255,255,255,0.25)]'
+                      : 'text-zinc-400 hover:text-white hover:bg-white/5 border border-transparent'
                   }`}
                 >
-                  <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-cyan-400' : 'text-slate-400'}`} />
+                  <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-white' : 'text-zinc-400'}`} />
                   <span>{item.label}</span>
                 </button>
               );
@@ -111,33 +111,33 @@ export const Navbar: React.FC<NavbarProps> = ({
           <div className="flex items-center gap-3">
             <button
               onClick={() => setShowSearchModal(true)}
-              className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-900/60 text-slate-400 text-xs border border-white/10 hover:border-cyan-500/40 hover:text-slate-200 transition-all active:scale-95 backdrop-blur-md font-mono"
+              className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-zinc-900/80 text-zinc-300 text-xs border border-white/10 hover:border-white/30 hover:text-white transition-all active:scale-95 backdrop-blur-md font-mono"
             >
-              <Search className="w-3.5 h-3.5 text-cyan-400" />
+              <Search className="w-3.5 h-3.5 text-white" />
               <span className="hidden sm:inline">Search hardware...</span>
-              <kbd className="hidden md:inline-block text-[10px] bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded font-mono border border-white/5">⌘K</kbd>
+              <kbd className="hidden md:inline-block text-[10px] bg-zinc-800 text-zinc-400 px-1.5 py-0.5 rounded font-mono border border-white/10">⌘K</kbd>
             </button>
 
             <div 
               onClick={() => setActiveTab('builder')}
-              className="flex items-center gap-3 px-3 py-1.5 rounded-xl bg-slate-900/70 border border-white/10 cursor-pointer hover:border-cyan-500/40 transition-all active:scale-95 backdrop-blur-md font-mono"
+              className="flex items-center gap-3 px-3 py-1.5 rounded-xl bg-zinc-900/80 border border-white/10 cursor-pointer hover:border-white/30 transition-all active:scale-95 backdrop-blur-md font-mono"
             >
               <div className="flex items-center gap-1.5 text-xs font-medium">
                 {compatibility.overallStatus === 'compatible' && (
-                  <span className="flex items-center gap-1 text-emerald-400">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 animate-pulse-gentle" />
+                  <span className="flex items-center gap-1 text-white">
+                    <CheckCircle2 className="w-4 h-4 text-white animate-pulse-gentle" />
                     <span className="hidden md:inline">Compatible</span>
                   </span>
                 )}
                 {compatibility.overallStatus === 'warning' && (
-                  <span className="flex items-center gap-1 text-amber-400">
-                    <AlertTriangle className="w-4 h-4 text-amber-400 animate-pulse-warning" />
+                  <span className="flex items-center gap-1 text-zinc-300">
+                    <AlertTriangle className="w-4 h-4 text-zinc-300 animate-pulse-warning" />
                     <span className="hidden md:inline">Warning</span>
                   </span>
                 )}
                 {compatibility.overallStatus === 'incompatible' && (
-                  <span className="flex items-center gap-1 text-rose-400">
-                    <XCircle className="w-4 h-4 text-rose-400" />
+                  <span className="flex items-center gap-1 text-white">
+                    <XCircle className="w-4 h-4 text-white" />
                     <span className="hidden md:inline">Issue</span>
                   </span>
                 )}
@@ -145,7 +145,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
               <div className="h-4 w-[1px] bg-white/10" />
 
-              <div className="text-xs text-slate-300 font-mono">
+              <div className="text-xs text-white font-mono">
                 ⚡ {compatibility.totalWattageW}W Load
               </div>
             </div>
@@ -153,7 +153,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               onClick={onOpenAdmin}
               title="Hardware Database Center"
-              className="p-2 rounded-xl bg-slate-900/70 text-slate-400 hover:text-cyan-400 border border-white/10 hover:border-cyan-500/40 transition-all active:scale-95"
+              className="p-2 rounded-xl bg-zinc-900/80 text-zinc-400 hover:text-white border border-white/10 hover:border-white/30 transition-all active:scale-95"
             >
               <SlidersHorizontal className="w-4 h-4" />
             </button>

@@ -15,23 +15,13 @@ export const GlassChip: React.FC<GlassChipProps> = ({
   onClick,
   icon,
   className = '',
-  color = 'cyan',
+  color: _color = 'cyan',
 }) => {
   const getColorClasses = () => {
     if (!active) {
-      return 'bg-slate-900/60 text-slate-300 border-slate-800 hover:border-slate-700 hover:text-white';
+      return 'bg-zinc-900/80 text-zinc-400 border-white/10 hover:border-white/30 hover:text-white';
     }
-    switch (color) {
-      case 'green':
-        return 'bg-emerald-500/15 text-emerald-400 border-emerald-500/40 shadow-[0_0_12px_-2px_rgba(16,185,129,0.3)]';
-      case 'amber':
-        return 'bg-amber-500/15 text-amber-400 border-amber-500/40 shadow-[0_0_12px_-2px_rgba(245,158,11,0.3)]';
-      case 'purple':
-        return 'bg-purple-500/15 text-purple-400 border-purple-500/40 shadow-[0_0_12px_-2px_rgba(168,85,247,0.3)]';
-      case 'cyan':
-      default:
-        return 'bg-cyan-500/15 text-cyan-300 border-cyan-500/40 shadow-[0_0_12px_-2px_rgba(6,182,212,0.3)]';
-    }
+    return 'bg-white/15 text-white border-white/35 shadow-[0_0_12px_-2px_rgba(255,255,255,0.25)]';
   };
 
   return (

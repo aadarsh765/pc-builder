@@ -91,7 +91,7 @@ export const GlassDock: React.FC<GlassDockProps> = ({
             <div key={item.id} className="relative group flex flex-col items-center">
               
               {/* Tooltip on hover */}
-              <div className="absolute -top-10 opacity-0 group-hover:opacity-100 transition-opacity duration-150 pointer-events-none whitespace-nowrap px-2.5 py-1 rounded-lg glass-panel text-[11px] font-mono text-cyan-300 border border-cyan-500/30 shadow-lg">
+              <div className="absolute -top-10 opacity-0 group-hover:opacity-100 transition-opacity duration-150 pointer-events-none whitespace-nowrap px-2.5 py-1 rounded-lg glass-panel text-[11px] font-mono text-white border border-white/30 shadow-lg">
                 {item.label}
               </div>
 
@@ -111,18 +111,18 @@ export const GlassDock: React.FC<GlassDockProps> = ({
                 }}
                 className={`relative w-11 h-11 rounded-xl flex items-center justify-center transition-colors duration-150 active:scale-95 ${
                   isActive
-                    ? 'bg-gradient-to-tr from-cyan-500/30 to-blue-500/20 border border-cyan-500/50 shadow-[0_0_15px_rgba(6,182,212,0.4)]'
-                    : 'bg-slate-900/60 hover:bg-white/10 border border-white/10'
+                    ? 'bg-white/20 border border-white/60 shadow-[0_0_15px_rgba(255,255,255,0.4)]'
+                    : 'bg-zinc-900/80 hover:bg-white/10 border border-white/10'
                 }`}
               >
                 <Icon
                   strokeWidth={isActive ? 2.5 : 2}
-                  className={`w-5 h-5 transition-colors ${isActive ? 'text-cyan-400' : 'text-slate-300 group-hover:text-white'}`}
+                  className={`w-5 h-5 transition-colors ${isActive ? 'text-white' : 'text-zinc-400 group-hover:text-white'}`}
                 />
                 
                 {/* Active Dot Indicator */}
                 {isActive && (
-                  <span className="absolute -bottom-1 w-1.5 h-1.5 rounded-full bg-cyan-400 shadow-[0_0_8px_#06b6d4]" />
+                  <span className="absolute -bottom-1 w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_8px_#ffffff]" />
                 )}
               </button>
             </div>

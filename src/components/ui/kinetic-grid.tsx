@@ -206,10 +206,10 @@ export const KineticGrid: React.FC = () => {
               Math.hypot(right.currentX - mouse.x, right.currentY - mouse.y)
             );
 
-            let strokeStyle = 'rgba(255, 255, 255, 0.06)';
+            let strokeStyle = 'rgba(255, 255, 255, 0.07)';
             if (!prefersReducedMotion && distToMouse < INFLUENCE_RADIUS) {
-              const alpha = (1 - distToMouse / INFLUENCE_RADIUS) * 0.35 + 0.06;
-              strokeStyle = `rgba(6, 182, 212, ${alpha})`;
+              const alpha = (1 - distToMouse / INFLUENCE_RADIUS) * 0.35 + 0.07;
+              strokeStyle = `rgba(255, 255, 255, ${alpha})`;
             }
 
             ctx.strokeStyle = strokeStyle;
@@ -227,10 +227,10 @@ export const KineticGrid: React.FC = () => {
               Math.hypot(down.currentX - mouse.x, down.currentY - mouse.y)
             );
 
-            let strokeStyle = 'rgba(255, 255, 255, 0.06)';
+            let strokeStyle = 'rgba(255, 255, 255, 0.07)';
             if (!prefersReducedMotion && distToMouse < INFLUENCE_RADIUS) {
-              const alpha = (1 - distToMouse / INFLUENCE_RADIUS) * 0.35 + 0.06;
-              strokeStyle = `rgba(6, 182, 212, ${alpha})`;
+              const alpha = (1 - distToMouse / INFLUENCE_RADIUS) * 0.35 + 0.07;
+              strokeStyle = `rgba(255, 255, 255, ${alpha})`;
             }
 
             ctx.strokeStyle = strokeStyle;
@@ -250,9 +250,9 @@ export const KineticGrid: React.FC = () => {
         if (!prefersReducedMotion && distToMouse < INFLUENCE_RADIUS) {
           const norm = 1 - distToMouse / INFLUENCE_RADIUS;
           const radius = 1.5 + norm * 1.5;
-          const alpha = 0.2 + norm * 0.6;
+          const alpha = 0.3 + norm * 0.6;
 
-          ctx.fillStyle = `rgba(6, 182, 212, ${alpha})`;
+          ctx.fillStyle = `rgba(255, 255, 255, ${alpha})`;
           ctx.beginPath();
           ctx.arc(node.currentX, node.currentY, radius, 0, Math.PI * 2);
           ctx.fill();
@@ -267,7 +267,7 @@ export const KineticGrid: React.FC = () => {
       // Draw Ripple Rings
       for (let j = 0; j < ripples.length; j++) {
         const rip = ripples[j];
-        ctx.strokeStyle = `rgba(6, 182, 212, ${rip.opacity * 0.25})`;
+        ctx.strokeStyle = `rgba(255, 255, 255, ${rip.opacity * 0.35})`;
         ctx.lineWidth = 1.5;
         ctx.beginPath();
         ctx.arc(rip.x, rip.y, rip.radius, 0, Math.PI * 2);
