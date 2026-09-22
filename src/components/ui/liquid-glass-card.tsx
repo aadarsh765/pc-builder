@@ -49,7 +49,7 @@ export const LiquidGlassCard: React.FC<LiquidGlassCardProps> = ({
         draggable={draggable}
         onClick={onClick}
         style={style}
-        className={`rounded-2xl relative transition-all duration-220 ${getVariantClasses()} ${
+        className={`rounded-xl relative transition-all duration-220 ${getVariantClasses()} ${
           isInteractive ? 'cursor-pointer select-none' : ''
         } ${className}`}
       >

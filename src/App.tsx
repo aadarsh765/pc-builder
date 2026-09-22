@@ -14,7 +14,6 @@ import { HardwarePage } from './pages/HardwarePage';
 import { HardwareDetailPage } from './pages/HardwareDetailPage';
 import { DashboardPage } from './pages/DashboardPage';
 import { AdminModal } from './components/AdminModal';
-import { AmbientBackground } from './components/motion/AmbientBackground';
 import { AnimatedPage } from './components/motion/AnimatedPage';
 import { GlassDock } from './components/glass/GlassDock';
 import { KineticGrid } from './components/ui/kinetic-grid';
@@ -57,11 +56,7 @@ export function App() {
   return (
     <div className="min-h-screen bg-[#05070d] text-slate-100 flex flex-col font-sans relative selection:bg-cyan-500/30 selection:text-cyan-200">
       
-      {/* Interactive Kinetic Grid Canvas Layer */}
       <KineticGrid />
-
-      {/* Slow moving ambient light background */}
-      <AmbientBackground />
 
       {/* Header / Liquid Glass Navbar */}
       <Navbar
@@ -70,14 +65,12 @@ export function App() {
           setSelectedDetailComponent(null);
           setActiveTab(tab);
         }}
-        build={build}
-        compatibility={compatibility}
         onOpenAdmin={() => setIsAdminOpen(true)}
         onSelectComponentDetail={handleSelectComponentDetail}
       />
 
       {/* Main Content Area */}
-      <div className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-28 z-10">
+      <div className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-16 z-10">
         {selectedDetailComponent ? (
           <AnimatedPage key="hardware-detail">
             <HardwareDetailPage
@@ -91,9 +84,6 @@ export function App() {
             {activeTab === 'home' && (
               <HomePage
                 onNavigate={setActiveTab}
-                onSelectComponent={handleSelectComponentDetail}
-                currentBuild={build}
-                compatibility={compatibility}
               />
             )}
 
@@ -145,24 +135,23 @@ export function App() {
         )}
       </div>
 
-      {/* Persistent MacOS-Style Floating Liquid Glass Dock */}
-      <GlassDock
+      {activeTab !== 'home' && <GlassDock
         activeTab={activeTab}
         setActiveTab={(tab) => {
           setSelectedDetailComponent(null);
           setActiveTab(tab);
         }}
         onOpenAdmin={() => setIsAdminOpen(true)}
-      />
+      />}
 
       {/* Footer */}
-      <footer className="border-t border-white/10 bg-slate-950/80 backdrop-blur-md py-8 text-center text-xs font-mono text-slate-500 z-10 relative">
+      <footer className="border-t border-white/[0.07] bg-[#07090d] py-6 text-center text-xs font-mono text-slate-500 z-10 relative">
         <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div>
-            <span className="text-slate-200 font-bold tracking-wider font-brand">RIGLAB</span> <span className="text-slate-400 font-medium">TECHNICAL PLATFORM</span> • PC Engineering & Hardware Analysis
+            <span className="text-slate-200 font-bold tracking-wider font-brand">RIGLAB</span> <span className="text-slate-500 font-medium">HARDWARE ANALYSIS</span>
           </div>
           <div>
-            Data provenance: ⚡ Empirical Verified Benchmarks & 📊 Physics Performance Models
+            Component research, configuration, and analysis tools.
           </div>
         </div>
       </footer>
