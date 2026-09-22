@@ -20,7 +20,7 @@ export const UpgradePage: React.FC<UpgradePageProps> = ({ currentBuild, onApplyU
       
       {/* Header */}
       <div className="border-b border-white/10 pb-4">
-        <h1 className="text-2xl font-brand font-bold text-white flex items-center gap-2">
+        <h1 className="text-2xl font-sans font-bold text-white flex items-center gap-2">
           <Zap className="w-6 h-6 text-amber-400" />
           <span>Hardware Upgrade Advisor</span>
         </h1>

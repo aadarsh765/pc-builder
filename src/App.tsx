@@ -159,7 +159,7 @@ export function App() {
       <footer className="border-t border-white/10 bg-slate-950/80 backdrop-blur-md py-8 text-center text-xs font-mono text-slate-500 z-10 relative">
         <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div>
-            <span className="text-slate-300 font-bold tracking-wider font-brand">RIGLAB TECHNICAL PLATFORM</span> • PC Engineering & Hardware Analysis
+            <span className="text-slate-200 font-bold tracking-wider font-brand">RIGLAB</span> <span className="text-slate-400 font-medium">TECHNICAL PLATFORM</span> • PC Engineering & Hardware Analysis
           </div>
           <div>
             Data provenance: ⚡ Empirical Verified Benchmarks & 📊 Physics Performance Models

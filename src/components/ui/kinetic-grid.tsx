@@ -206,10 +206,11 @@ export const KineticGrid: React.FC = () => {
               Math.hypot(right.currentX - mouse.x, right.currentY - mouse.y)
             );
 
-            let strokeStyle = 'rgba(255, 255, 255, 0.07)';
+            let strokeStyle = 'rgba(255, 255, 255, 0.04)';
             if (!prefersReducedMotion && distToMouse < INFLUENCE_RADIUS) {
-              const alpha = (1 - distToMouse / INFLUENCE_RADIUS) * 0.35 + 0.07;
-              strokeStyle = `rgba(255, 255, 255, ${alpha})`;
+              const norm = 1 - distToMouse / INFLUENCE_RADIUS;
+              const alpha = norm * 0.22 + 0.04;
+              strokeStyle = `rgba(6, 182, 212, ${alpha})`;
             }
 
             ctx.strokeStyle = strokeStyle;
@@ -227,10 +228,11 @@ export const KineticGrid: React.FC = () => {
               Math.hypot(down.currentX - mouse.x, down.currentY - mouse.y)
             );
 
-            let strokeStyle = 'rgba(255, 255, 255, 0.07)';
+            let strokeStyle = 'rgba(255, 255, 255, 0.04)';
             if (!prefersReducedMotion && distToMouse < INFLUENCE_RADIUS) {
-              const alpha = (1 - distToMouse / INFLUENCE_RADIUS) * 0.35 + 0.07;
-              strokeStyle = `rgba(255, 255, 255, ${alpha})`;
+              const norm = 1 - distToMouse / INFLUENCE_RADIUS;
+              const alpha = norm * 0.22 + 0.04;
+              strokeStyle = `rgba(6, 182, 212, ${alpha})`;
             }
 
             ctx.strokeStyle = strokeStyle;
@@ -249,17 +251,17 @@ export const KineticGrid: React.FC = () => {
 
         if (!prefersReducedMotion && distToMouse < INFLUENCE_RADIUS) {
           const norm = 1 - distToMouse / INFLUENCE_RADIUS;
-          const radius = 1.5 + norm * 1.5;
-          const alpha = 0.3 + norm * 0.6;
+          const radius = 1.2 + norm * 1.2;
+          const alpha = 0.2 + norm * 0.45;
 
-          ctx.fillStyle = `rgba(255, 255, 255, ${alpha})`;
+          ctx.fillStyle = `rgba(34, 211, 238, ${alpha})`;
           ctx.beginPath();
           ctx.arc(node.currentX, node.currentY, radius, 0, Math.PI * 2);
           ctx.fill();
         } else {
-          ctx.fillStyle = 'rgba(255, 255, 255, 0.12)';
+          ctx.fillStyle = 'rgba(255, 255, 255, 0.07)';
           ctx.beginPath();
-          ctx.arc(node.currentX, node.currentY, 1.2, 0, Math.PI * 2);
+          ctx.arc(node.currentX, node.currentY, 1.0, 0, Math.PI * 2);
           ctx.fill();
         }
       }
@@ -267,8 +269,8 @@ export const KineticGrid: React.FC = () => {
       // Draw Ripple Rings
       for (let j = 0; j < ripples.length; j++) {
         const rip = ripples[j];
-        ctx.strokeStyle = `rgba(255, 255, 255, ${rip.opacity * 0.35})`;
-        ctx.lineWidth = 1.5;
+        ctx.strokeStyle = `rgba(6, 182, 212, ${rip.opacity * 0.25})`;
+        ctx.lineWidth = 1.2;
         ctx.beginPath();
         ctx.arc(rip.x, rip.y, rip.radius, 0, Math.PI * 2);
         ctx.stroke();

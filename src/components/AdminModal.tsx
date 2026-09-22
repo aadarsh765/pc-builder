@@ -39,7 +39,7 @@ export const AdminModal: React.FC<AdminModalProps> = ({ isOpen, onClose }) => {
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h3 className="text-lg font-brand text-white">HARDWARE DATABASE CENTER</h3>
+                <h3 className="text-lg font-sans font-bold text-white tracking-wider">HARDWARE DATABASE CENTER</h3>
                 <GlassChip active color="cyan">v2.4 (Sep 2026)</GlassChip>
               </div>
               <p className="text-xs text-slate-400">Technical spec repository, data provenance verification, and offline cache state.</p>

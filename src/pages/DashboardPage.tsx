@@ -63,7 +63,7 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({ currentBuild, onLo
       {/* Header */}
       <div className="border-b border-white/10 pb-4 flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-brand font-bold text-white flex items-center gap-2">
+          <h1 className="text-2xl font-sans font-bold text-white flex items-center gap-2">
             <BookmarkCheck className="w-6 h-6 text-cyan-400" />
             <span>Saved PC Build Snapshots</span>
           </h1>

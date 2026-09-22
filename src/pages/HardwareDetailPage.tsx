@@ -41,7 +41,7 @@ export const HardwareDetailPage: React.FC<HardwareDetailPageProps> = ({
             <img src={component.imageUrl} alt={component.name} className="w-20 h-20 object-cover rounded-2xl bg-slate-900 border border-white/10 shrink-0" />
             <div>
               <GlassChip active color="cyan">{component.category} • {component.brand}</GlassChip>
-              <h1 className="text-2xl font-brand font-bold text-white mt-2">{component.name}</h1>
+              <h1 className="text-2xl font-sans font-extrabold text-white tracking-tight">{component.name}</h1>
               <p className="text-xs text-slate-400 mt-1">{component.notes}</p>
             </div>
           </div>

@@ -6,8 +6,6 @@ import {
   Gamepad2, 
   BarChart3, 
   Scale, 
-  Target, 
-  BookmarkCheck, 
   SlidersHorizontal
 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
@@ -35,13 +33,11 @@ export const GlassDock: React.FC<GlassDockProps> = ({
 
   const items: DockItem[] = [
     { id: 'home', label: 'Home', icon: Home },
-    { id: 'builder', label: 'Build PC', icon: Cpu },
+    { id: 'builder', label: 'Build', icon: Cpu },
     { id: 'hardware', label: 'Hardware', icon: Database },
-    { id: 'fps', label: 'FPS Calculator', icon: Gamepad2 },
-    { id: 'bottleneck', label: 'Bottlenecks', icon: BarChart3 },
+    { id: 'fps', label: 'FPS', icon: Gamepad2 },
+    { id: 'bottleneck', label: 'Analyze', icon: BarChart3 },
     { id: 'compare', label: 'Compare', icon: Scale },
-    { id: 'target', label: 'Target Builder', icon: Target },
-    { id: 'dashboard', label: 'Snapshots', icon: BookmarkCheck },
     { id: 'admin', label: 'Database Center', icon: SlidersHorizontal, action: onOpenAdmin },
   ];
 
@@ -58,29 +54,27 @@ export const GlassDock: React.FC<GlassDockProps> = ({
 
   const getScaleFactor = (index: number) => {
     if (mouseX === null || !dockRef.current) return 1;
-    // Calculate distance between cursor and icon center
-    const itemWidth = 48; // base width per icon container
+    const itemWidth = 44;
     const itemCenter = index * (itemWidth + 8) + itemWidth / 2 + 16;
     const distance = Math.abs(mouseX - itemCenter);
-    const maxDistance = 120;
+    const maxDistance = 110;
 
     if (distance > maxDistance) return 1;
 
-    // Smooth Gaussian-like magnification formula (1.0 -> 1.5)
-    const factor = 1 + 0.5 * Math.cos((distance / maxDistance) * (Math.PI / 2));
-    return Math.min(Math.max(factor, 1.0), 1.5);
+    const factor = 1 + 0.45 * Math.cos((distance / maxDistance) * (Math.PI / 2));
+    return Math.min(Math.max(factor, 1.0), 1.45);
   };
 
   return (
     <aside
-      className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 pointer-events-auto"
+      className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 pointer-events-auto hidden sm:block"
       aria-label="Floating Action Dock"
     >
       <div
         ref={dockRef}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
-        className="glass-dock px-4 py-2.5 rounded-2xl flex items-center gap-2 shadow-[0_20px_60px_0_rgba(0,0,0,0.6)] border border-white/15 backdrop-blur-2xl relative"
+        className="glass-dock px-3.5 py-2 rounded-2xl flex items-center gap-2 border border-white/12 backdrop-blur-2xl relative shadow-[0_16px_40px_rgba(0,0,0,0.6)]"
       >
         {items.map((item, index) => {
           const Icon = item.icon;
@@ -91,7 +85,7 @@ export const GlassDock: React.FC<GlassDockProps> = ({
             <div key={item.id} className="relative group flex flex-col items-center">
               
               {/* Tooltip on hover */}
-              <div className="absolute -top-10 opacity-0 group-hover:opacity-100 transition-opacity duration-150 pointer-events-none whitespace-nowrap px-2.5 py-1 rounded-lg glass-panel text-[11px] font-mono text-white border border-white/30 shadow-lg">
+              <div className="absolute -top-9 opacity-0 group-hover:opacity-100 transition-opacity duration-150 pointer-events-none whitespace-nowrap px-2 py-0.5 rounded-md bg-slate-900/90 text-[10px] font-mono text-white border border-white/20 shadow-md">
                 {item.label}
               </div>
 
@@ -106,23 +100,23 @@ export const GlassDock: React.FC<GlassDockProps> = ({
                   }
                 }}
                 style={{
-                  transform: `scale(${scale}) translateY(${scale > 1.1 ? -(scale - 1) * 12 : 0}px)`,
-                  transition: mouseX === null ? 'transform 200ms ease-out' : 'transform 50ms linear',
+                  transform: `scale(${scale}) translateY(${scale > 1.1 ? -(scale - 1) * 10 : 0}px)`,
+                  transition: mouseX === null ? 'transform 180ms ease-out' : 'transform 40ms linear',
                 }}
-                className={`relative w-11 h-11 rounded-xl flex items-center justify-center transition-colors duration-150 active:scale-95 ${
+                className={`relative w-10 h-10 rounded-xl flex items-center justify-center transition-colors duration-150 active:scale-95 ${
                   isActive
-                    ? 'bg-white/20 border border-white/60 shadow-[0_0_15px_rgba(255,255,255,0.4)]'
-                    : 'bg-zinc-900/80 hover:bg-white/10 border border-white/10'
+                    ? 'bg-cyan-500/20 border border-cyan-400/60 text-cyan-300 shadow-[0_0_12px_rgba(6,182,212,0.3)]'
+                    : 'bg-slate-900/80 hover:bg-white/10 border border-white/10 text-slate-400 hover:text-white'
                 }`}
               >
                 <Icon
-                  strokeWidth={isActive ? 2.5 : 2}
-                  className={`w-5 h-5 transition-colors ${isActive ? 'text-white' : 'text-zinc-400 group-hover:text-white'}`}
+                  strokeWidth={isActive ? 2.2 : 1.8}
+                  className="w-4.5 h-4.5"
                 />
                 
                 {/* Active Dot Indicator */}
                 {isActive && (
-                  <span className="absolute -bottom-1 w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_8px_#ffffff]" />
+                  <span className="absolute -bottom-1 w-1.2 h-1.2 rounded-full bg-cyan-400 shadow-[0_0_6px_#22d3ee]" />
                 )}
               </button>
             </div>
@@ -132,3 +126,5 @@ export const GlassDock: React.FC<GlassDockProps> = ({
     </aside>
   );
 };
+
+export default GlassDock;

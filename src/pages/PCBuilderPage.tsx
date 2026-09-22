@@ -133,7 +133,7 @@ export const PCBuilderPage: React.FC<PCBuilderPageProps> = ({
       {/* Page Header Bar */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-4">
         <div>
-          <h1 className="text-2xl font-brand font-bold text-white flex items-center gap-2">
+          <h1 className="text-2xl font-sans font-bold text-white flex items-center gap-2">
             <span>Custom PC Builder</span>
             <GlassChip active color="cyan">Engineering Analysis Mode</GlassChip>
           </h1>

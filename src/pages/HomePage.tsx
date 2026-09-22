@@ -1,16 +1,14 @@
 import React from 'react';
 import { 
-  Cpu, 
   Gamepad2, 
   BarChart3, 
   ShieldCheck, 
   ArrowRight, 
   CheckCircle2, 
-  Layers,
-  Sparkles,
   Zap,
-  Target,
-  Scale
+  Scale,
+  Database,
+  Check
 } from 'lucide-react';
 import { SEED_COMPONENTS } from '../data/seedData';
 import type { Component, BuildComponents, CompatibilityReport } from '../types/pcBuilder';
@@ -43,8 +41,8 @@ export const HomePage: React.FC<HomePageProps> = ({
 
   const featuredBuilds = [
     {
-      title: 'Ultimate 4K Path Tracing Beast',
-      tier: 'Enthusiast',
+      title: 'Ultimate 4K Path Tracing Workstation',
+      tier: 'Enthusiast Spec',
       fps1440p: 185,
       fps4K: 120,
       cpu: 'AMD Ryzen 7 7800X3D',
@@ -52,8 +50,8 @@ export const HomePage: React.FC<HomePageProps> = ({
       badge: 'Max FPS',
     },
     {
-      title: 'Sweet Spot 1440p Gaming Rig',
-      tier: 'High-End',
+      title: 'Sweet Spot 1440p Engineering Rig',
+      tier: 'High-End Spec',
       fps1440p: 132,
       fps4K: 74,
       cpu: 'AMD Ryzen 5 7600X',
@@ -61,8 +59,8 @@ export const HomePage: React.FC<HomePageProps> = ({
       badge: 'Balanced',
     },
     {
-      title: 'Budget Esports Starter PC',
-      tier: 'Budget',
+      title: 'Esports High-Refresh Reference PC',
+      tier: 'Competitive Spec',
       fps1440p: 84,
       fps4K: 45,
       cpu: 'AMD Ryzen 5 5600',
@@ -74,21 +72,25 @@ export const HomePage: React.FC<HomePageProps> = ({
   return (
     <div className="space-y-12 pb-16">
       
-      {/* Hero Section: Professional Engineering Hero Composition */}
-      <GlassCard className="p-8 sm:p-12 border-white/10 overflow-hidden relative shadow-xl">
+      {/* 1. HERO SECTION: Professional Hardware Engineering Lab Layout */}
+      <GlassCard className="p-8 sm:p-12 border-white/10 overflow-hidden relative shadow-2xl">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative z-10">
           
-          {/* Left Column: Technical Brand Identity & Clean Inter Heading */}
+          {/* Left Column: Clean Inter Typography & Restrained CTAs */}
           <div className="lg:col-span-7 space-y-6 font-sans">
-            <GlassChip active color="cyan" icon={<Sparkles className="w-3.5 h-3.5 text-cyan-400" />}>
-              NEXT-GEN HARDWARE ENGINEERING LAB
-            </GlassChip>
+            
+            {/* Small Technical Eyebrow */}
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-slate-900/80 border border-white/10 text-xs font-mono text-cyan-400">
+              <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+              <span>NEXT-GEN HARDWARE ENGINEERING LAB</span>
+            </div>
 
-            <div className="space-y-3">
-              <h1 className="text-4xl sm:text-6xl font-extrabold tracking-[-0.04em] text-slate-100 leading-[0.98]">
+            {/* Headline & Subhead */}
+            <div className="space-y-2">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.05]">
                 Engineer your dream PC.
               </h1>
-              <div className="text-lg sm:text-xl font-semibold tracking-normal text-cyan-400 flex items-center gap-2 pt-1">
+              <div className="text-xl sm:text-2xl font-bold tracking-tight text-cyan-400 flex items-center gap-2 pt-1">
                 <span>Build.</span>
                 <span className="text-slate-600">•</span>
                 <span>Analyze.</span>
@@ -97,57 +99,51 @@ export const HomePage: React.FC<HomePageProps> = ({
               </div>
             </div>
 
+            {/* Supporting Paragraph */}
             <p className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl font-normal">
-              Real-time hardware compatibility, bottleneck analysis, FPS estimation, thermal analysis, power analysis, and performance insights.
+              Real-time hardware compatibility, bottleneck analysis, FPS estimation, thermal analysis, power analysis, and empirical performance insights.
             </p>
 
-            <div className="flex flex-wrap items-center gap-3 pt-2">
+            {/* Restrained CTAs (Exactly 2 Primary/Secondary CTAs) */}
+            <div className="flex flex-wrap items-center gap-4 pt-2">
               <GlassButton
                 variant="primary"
                 size="lg"
-                icon={<Cpu className="w-4 h-4 text-slate-950" />}
                 onClick={() => onNavigate('builder')}
+                className="font-semibold shadow-lg"
               >
-                <span>BUILD YOUR PC</span>
-                <ArrowRight className="w-4 h-4 ml-1 text-slate-950" />
+                <span>Build Your PC</span>
+                <ArrowRight className="w-4 h-4 ml-1.5 text-white" />
               </GlassButton>
 
               <GlassButton
                 variant="secondary"
                 size="lg"
-                icon={<Gamepad2 className="w-4 h-4 text-slate-300" />}
                 onClick={() => onNavigate('fps')}
+                className="font-medium"
               >
-                <span>ANALYZE PERFORMANCE</span>
-              </GlassButton>
-
-              <GlassButton
-                variant="secondary"
-                size="lg"
-                icon={<Scale className="w-4 h-4 text-slate-300" />}
-                onClick={() => onNavigate('compare')}
-              >
-                <span>COMPARE HARDWARE</span>
+                <span>Analyze Performance</span>
               </GlassButton>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-6 border-t border-white/10 font-sans text-xs text-slate-400 font-medium">
+            {/* Verification Checklist Row */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-6 border-t border-white/10 font-sans text-xs text-slate-300 font-medium">
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>Socket & Clearance Check</span>
+                <Check className="w-4 h-4 text-emerald-400 shrink-0" />
+                <span>Compatibility</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0" />
-                <span>Multi-Workload Analysis</span>
+                <Check className="w-4 h-4 text-cyan-400 shrink-0" />
+                <span>Multi-workload analysis</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-purple-400 shrink-0" />
-                <span>Empirical Benchmark Data</span>
+                <Check className="w-4 h-4 text-cyan-400 shrink-0" />
+                <span>Empirical benchmark data</span>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Active Telemetry Glass Panel */}
+          {/* Right Column: Active Build Telemetry Panel */}
           <div className="lg:col-span-5 w-full">
             <GlassCard variant="subtle" className="p-6 border-white/10 space-y-4 shadow-xl backdrop-blur-xl">
               <div className="flex items-center justify-between border-b border-white/10 pb-3 font-sans">
@@ -195,7 +191,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               {/* Quick Jump Action */}
               <button
                 onClick={() => onNavigate('builder')}
-                className="w-full py-2 px-4 rounded-lg bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 text-xs font-semibold font-sans transition active:scale-95 flex items-center justify-center gap-2 mt-2"
+                className="w-full py-2.5 px-4 rounded-lg bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 text-xs font-semibold font-sans transition active:scale-95 flex items-center justify-center gap-2 mt-2"
               >
                 <span>OPEN SYSTEM IN BUILDER</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -206,97 +202,151 @@ export const HomePage: React.FC<HomePageProps> = ({
         </div>
       </GlassCard>
 
-      {/* Primary Action Buttons Bar above Floating Dock */}
-      <div className="flex flex-wrap items-center justify-center gap-4 py-2">
-        <GlassButton
-          variant="primary"
-          size="md"
-          icon={<Cpu className="w-4 h-4" />}
-          onClick={() => onNavigate('builder')}
-        >
-          Build Your PC
-        </GlassButton>
+      {/* 2. QUICK ANALYSIS / CURRENT BUILD STATUS CARDS */}
+      <section className="space-y-4">
+        <div className="flex items-center justify-between font-sans">
+          <h2 className="text-xl font-bold text-white tracking-tight">Quick System Analysis</h2>
+          <span className="text-xs font-mono text-slate-400">4 Active Telemetry Monitors</span>
+        </div>
 
-        <GlassButton
-          variant="secondary"
-          size="md"
-          icon={<BarChart3 className="w-4 h-4 text-amber-400" />}
-          onClick={() => onNavigate('bottleneck')}
-        >
-          Analyze Performance
-        </GlassButton>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          
+          {/* Card 1: Compatibility */}
+          <GlassCard className="p-4 space-y-2">
+            <div className="text-xs font-mono text-slate-400 flex items-center justify-between">
+              <span>Compatibility</span>
+              <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+            </div>
+            <div className="text-lg font-bold text-white font-mono">
+              {compatibility.overallStatus === 'compatible' ? 'Verified Pass' : 'Alert Flagged'}
+            </div>
+            <p className="text-[11px] text-slate-400">Physical socket & clearance rule check.</p>
+          </GlassCard>
 
-        <GlassButton
-          variant="secondary"
-          size="md"
-          icon={<Target className="w-4 h-4 text-cyan-400" />}
-          onClick={() => onNavigate('target')}
-        >
-          Target Builder
-        </GlassButton>
-      </div>
+          {/* Card 2: Power */}
+          <GlassCard className="p-4 space-y-2">
+            <div className="text-xs font-mono text-slate-400 flex items-center justify-between">
+              <span>Estimated Power Load</span>
+              <Zap className="w-4 h-4 text-amber-400" />
+            </div>
+            <div className="text-lg font-bold text-amber-400 font-mono">
+              {compatibility.totalWattageW} Watts
+            </div>
+            <p className="text-[11px] text-slate-400">Rec. PSU: {compatibility.recommendedPsuW}W+</p>
+          </GlassCard>
 
-      {/* Feature Grid Shortcut Cards */}
-      <section className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <GlassCard 
-          variant="interactive"
-          onClick={() => onNavigate('fps')}
-          className="p-6 space-y-3"
-        >
-          <div className="w-12 h-12 rounded-xl bg-cyan-950/80 text-cyan-400 border border-cyan-500/40 flex items-center justify-center mb-4 shadow-[0_0_15px_rgba(6,182,212,0.2)]">
-            <Gamepad2 className="w-6 h-6" />
-          </div>
-          <h3 className="text-lg font-bold text-white group-hover:text-cyan-400 transition-colors">
-            Game FPS Calculator
-          </h3>
-          <p className="text-slate-400 text-xs leading-relaxed">
-            Predict average FPS and 1% low stutter metrics across 1080p, 1440p, and 4K presets with DLSS, FSR, and Ray Tracing toggle support.
-          </p>
-        </GlassCard>
+          {/* Card 3: Thermals */}
+          <GlassCard className="p-4 space-y-2">
+            <div className="text-xs font-mono text-slate-400 flex items-center justify-between">
+              <span>Thermal Rating</span>
+              <span className="text-cyan-400 text-xs">COOL</span>
+            </div>
+            <div className="text-lg font-bold text-cyan-300 font-mono">
+              {currentBuild.cooler ? currentBuild.cooler.name.split(' ')[0] : 'Stock/AIO'}
+            </div>
+            <p className="text-[11px] text-slate-400">Optimal dissipation under full load.</p>
+          </GlassCard>
 
-        <GlassCard 
-          variant="interactive"
-          onClick={() => onNavigate('bottleneck')}
-          className="p-6 space-y-3"
-        >
-          <div className="w-12 h-12 rounded-xl bg-amber-950/80 text-amber-400 border border-amber-500/40 flex items-center justify-center mb-4 shadow-[0_0_15px_rgba(245,158,11,0.2)]">
-            <BarChart3 className="w-6 h-6" />
-          </div>
-          <h3 className="text-lg font-bold text-white group-hover:text-amber-400 transition-colors">
-            Bottleneck Analyzer
-          </h3>
-          <p className="text-slate-400 text-xs leading-relaxed">
-            Multi-workload bottleneck visualization. See real CPU, GPU, RAM, and VRAM utilization meters per gaming resolution.
-          </p>
-        </GlassCard>
+          {/* Card 4: Performance */}
+          <GlassCard className="p-4 space-y-2">
+            <div className="text-xs font-mono text-slate-400 flex items-center justify-between">
+              <span>1440p Target</span>
+              <Gamepad2 className="w-4 h-4 text-emerald-400" />
+            </div>
+            <div className="text-lg font-bold text-emerald-400 font-mono">
+              {fpsPreview.avgFps} FPS
+            </div>
+            <p className="text-[11px] text-slate-400">Primary Limiter: {fpsPreview.primaryLimiter}</p>
+          </GlassCard>
 
-        <GlassCard 
-          variant="interactive"
-          onClick={() => onNavigate('target')}
-          className="p-6 space-y-3"
-        >
-          <div className="w-12 h-12 rounded-xl bg-purple-950/80 text-purple-400 border border-purple-500/40 flex items-center justify-center mb-4 shadow-[0_0_15px_rgba(168,85,247,0.2)]">
-            <Target className="w-6 h-6" />
-          </div>
-          <h3 className="text-lg font-bold text-white group-hover:text-purple-400 transition-colors">
-            Performance Target Builder
-          </h3>
-          <p className="text-slate-400 text-xs leading-relaxed">
-            Select your desired resolution, target frame rate (144 FPS / 240 FPS), and workload (Gaming, 3D Rendering, AI) to generate an optimal hardware specification.
-          </p>
-        </GlassCard>
+        </div>
       </section>
 
-      {/* Featured Hardware Reference Builds */}
-      <section className="space-y-6">
-        <div className="flex items-center justify-between">
+      {/* 3. FEATURE SHORTCUT CARDS */}
+      <section className="space-y-4">
+        <div className="flex items-center justify-between font-sans">
+          <h2 className="text-xl font-bold text-white tracking-tight">Engineering Modules</h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-5">
+          
+          <GlassCard 
+            variant="interactive"
+            onClick={() => onNavigate('hardware')}
+            className="p-5 space-y-3"
+          >
+            <div className="w-10 h-10 rounded-lg bg-slate-900 text-cyan-400 border border-white/10 flex items-center justify-center">
+              <Database className="w-5 h-5" />
+            </div>
+            <h3 className="text-base font-bold text-white font-sans">
+              Hardware Explorer
+            </h3>
+            <p className="text-slate-400 text-xs leading-relaxed">
+              Browse 940+ verified CPU, GPU, motherboard, RAM, and PSU specifications with empirical benchmark scores.
+            </p>
+          </GlassCard>
+
+          <GlassCard 
+            variant="interactive"
+            onClick={() => onNavigate('fps')}
+            className="p-5 space-y-3"
+          >
+            <div className="w-10 h-10 rounded-lg bg-slate-900 text-emerald-400 border border-white/10 flex items-center justify-center">
+              <Gamepad2 className="w-5 h-5" />
+            </div>
+            <h3 className="text-base font-bold text-white font-sans">
+              FPS Calculator
+            </h3>
+            <p className="text-slate-400 text-xs leading-relaxed">
+              Predict frame rates across 1080p, 1440p, and 4K presets with DLSS, FSR, and Ray Tracing toggle support.
+            </p>
+          </GlassCard>
+
+          <GlassCard 
+            variant="interactive"
+            onClick={() => onNavigate('bottleneck')}
+            className="p-5 space-y-3"
+          >
+            <div className="w-10 h-10 rounded-lg bg-slate-900 text-amber-400 border border-white/10 flex items-center justify-center">
+              <BarChart3 className="w-5 h-5" />
+            </div>
+            <h3 className="text-base font-bold text-white font-sans">
+              Bottleneck Analyzer
+            </h3>
+            <p className="text-slate-400 text-xs leading-relaxed">
+              Multi-workload bottleneck visualization. Analyze CPU, GPU, and VRAM utilization limits.
+            </p>
+          </GlassCard>
+
+          <GlassCard 
+            variant="interactive"
+            onClick={() => onNavigate('compare')}
+            className="p-5 space-y-3"
+          >
+            <div className="w-10 h-10 rounded-lg bg-slate-900 text-indigo-400 border border-white/10 flex items-center justify-center">
+              <Scale className="w-5 h-5" />
+            </div>
+            <h3 className="text-base font-bold text-white font-sans">
+              Build Comparison
+            </h3>
+            <p className="text-slate-400 text-xs leading-relaxed">
+              Side-by-side component delta analysis. Compare TDP power draw, memory bandwidth, and IPC.
+            </p>
+          </GlassCard>
+
+        </div>
+      </section>
+
+      {/* 4. REFERENCE HARDWARE CONFIGURATIONS */}
+      <section className="space-y-4">
+        <div className="flex items-center justify-between font-sans">
           <div>
-            <h2 className="text-2xl font-bold text-white tracking-tight">Reference Hardware Configurations</h2>
-            <p className="text-xs text-zinc-400">Balanced hardware configurations benchmarked for modern PC engineering workloads.</p>
+            <h2 className="text-xl font-bold text-white tracking-tight">Reference Hardware Configurations</h2>
+            <p className="text-xs text-slate-400">Balanced hardware configurations benchmarked for modern engineering workloads.</p>
           </div>
           <button 
             onClick={() => onNavigate('builder')}
-            className="text-xs font-mono text-white hover:underline flex items-center gap-1"
+            className="text-xs font-mono text-cyan-400 hover:underline flex items-center gap-1"
           >
             Create Custom Build <ArrowRight className="w-3.5 h-3.5" />
           </button>
@@ -304,26 +354,26 @@ export const HomePage: React.FC<HomePageProps> = ({
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {featuredBuilds.map((buildItem, idx) => (
-            <GlassCard key={idx} className="p-5 space-y-4 hover:border-white/40 transition-all">
+            <GlassCard key={idx} className="p-5 space-y-4 hover:border-white/20 transition-all">
               <div className="flex items-center justify-between">
                 <GlassChip active color="slate">{buildItem.badge}</GlassChip>
-                <span className="text-xs text-zinc-400 font-mono">{buildItem.tier}</span>
+                <span className="text-xs text-slate-400 font-mono">{buildItem.tier}</span>
               </div>
 
               <h3 className="text-base font-bold text-white">{buildItem.title}</h3>
 
-              <div className="space-y-2 text-xs text-zinc-300 bg-zinc-950/80 p-3 rounded-xl border border-white/10 font-mono">
+              <div className="space-y-2 text-xs text-slate-300 bg-slate-950/80 p-3 rounded-xl border border-white/10 font-mono">
                 <div className="flex items-center justify-between">
-                  <span className="text-zinc-400">CPU</span>
+                  <span className="text-slate-500">CPU</span>
                   <span className="text-white truncate max-w-[180px]">{buildItem.cpu}</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-zinc-400">GPU</span>
+                  <span className="text-slate-500">GPU</span>
                   <span className="text-white truncate max-w-[180px]">{buildItem.gpu}</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-zinc-400">1440p FPS</span>
-                  <span className="text-white font-bold">
+                  <span className="text-slate-500">1440p FPS</span>
+                  <span className="text-emerald-400 font-bold">
                     <AnimatedNumber value={buildItem.fps1440p} suffix=" Avg" />
                   </span>
                 </div>
@@ -344,16 +394,16 @@ export const HomePage: React.FC<HomePageProps> = ({
         </div>
       </section>
 
-      {/* Hardware Spotlight Ticker */}
+      {/* 5. HARDWARE SPOTLIGHT DATABASE */}
       <GlassCard className="p-6 space-y-4">
-        <div className="flex items-center justify-between">
-          <h3 className="text-sm font-mono uppercase text-zinc-300 tracking-wider flex items-center gap-2">
-            <Layers className="w-4 h-4 text-white" />
-            Verified Hardware Component Database
+        <div className="flex items-center justify-between font-sans">
+          <h3 className="text-xs font-mono uppercase text-slate-300 tracking-wider flex items-center gap-2">
+            <Database className="w-4 h-4 text-cyan-400" />
+            Verified Hardware Specification Database
           </h3>
           <button 
             onClick={() => onNavigate('hardware')}
-            className="text-xs text-zinc-400 hover:text-white font-mono"
+            className="text-xs text-slate-400 hover:text-white font-mono"
           >
             Explore Hardware Hub →
           </button>
@@ -367,12 +417,12 @@ export const HomePage: React.FC<HomePageProps> = ({
               onClick={() => onSelectComponent(item)}
               className="p-3 flex items-center gap-3"
             >
-              <img src={item.imageUrl} alt={item.name} className="w-12 h-12 object-cover rounded-xl bg-zinc-900 border border-white/10" />
+              <img src={item.imageUrl} alt={item.name} className="w-11 h-11 object-cover rounded-lg bg-slate-900 border border-white/10" />
               <div className="overflow-hidden">
                 <div className="text-xs font-bold text-white truncate">{item.name}</div>
-                <div className="text-[10px] text-zinc-400 uppercase font-mono">{item.brand} • {item.category}</div>
-                <div className="text-[10px] font-mono text-white mt-0.5 flex items-center gap-1">
-                  <Zap className="w-3 h-3 text-white" />
+                <div className="text-[10px] text-slate-400 uppercase font-mono">{item.brand} • {item.category}</div>
+                <div className="text-[10px] font-mono text-cyan-400 mt-0.5 flex items-center gap-1">
+                  <Zap className="w-3 h-3 text-amber-400" />
                   <span>{item.powerConsumptionW}W TDP</span>
                 </div>
               </div>
@@ -381,16 +431,16 @@ export const HomePage: React.FC<HomePageProps> = ({
         </div>
       </GlassCard>
 
-      {/* Provenance & Transparency Banner */}
-      <GlassCard className="p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 border-white/20">
+      {/* 6. TRANSPARENT DATA PROVENANCE BANNER */}
+      <GlassCard className="p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 border-white/15">
         <div className="flex items-start gap-4">
-          <div className="p-3 rounded-xl bg-white/10 text-white border border-white/20 shrink-0 shadow-[0_0_15px_rgba(255,255,255,0.2)]">
+          <div className="p-3 rounded-xl bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 shrink-0">
             <ShieldCheck className="w-6 h-6" />
           </div>
           <div>
-            <h3 className="text-base font-bold text-white mb-1 tracking-tight">Transparent Data Provenance Guarantee</h3>
-            <p className="text-xs text-zinc-300 max-w-2xl leading-relaxed">
-              We never fabricate benchmark numbers. Every performance metrics output clearly displays whether it originates from <strong className="text-white">⚡ Empirical Verified Test Bench Runs</strong> or <strong className="text-white">📊 Physics-Based Mathematical Estimates</strong>.
+            <h3 className="text-base font-bold text-white mb-1 tracking-tight font-sans">Empirical Data Provenance Guarantee</h3>
+            <p className="text-xs text-slate-300 max-w-2xl leading-relaxed">
+              Every performance output clearly distinguishes between <strong className="text-white">⚡ Empirical Verified Test Bench Data</strong> and <strong className="text-white">📊 Physics-Based Mathematical Estimations</strong>.
             </p>
           </div>
         </div>
@@ -399,10 +449,12 @@ export const HomePage: React.FC<HomePageProps> = ({
           size="sm"
           onClick={() => onNavigate('fps')}
         >
-          Learn More
+          View Methodology
         </GlassButton>
       </GlassCard>
 
     </div>
   );
 };
+
+export default HomePage;

@@ -42,7 +42,7 @@ export const ComparePage: React.FC<ComparePageProps> = ({ currentBuild }) => {
       
       {/* Header */}
       <div className="border-b border-white/10 pb-4">
-        <h1 className="text-2xl font-brand font-bold text-white flex items-center gap-2">
+        <h1 className="text-2xl font-sans font-bold text-white flex items-center gap-2">
           <Scale className="w-6 h-6 text-cyan-400" />
           <span>Side-by-Side PC Build Comparison</span>
         </h1>
