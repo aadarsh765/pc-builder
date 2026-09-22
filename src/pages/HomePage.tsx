@@ -30,7 +30,11 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => (
         <LiquidGlassButton variant="primary" size="md" onClick={() => onNavigate('builder')}>Build a PC →</LiquidGlassButton>
         <LiquidGlassButton variant="secondary" size="md" onClick={() => onNavigate('bottleneck')}>Analyze a system</LiquidGlassButton>
       </div>
-      <p className="home-supporting-line">Compatibility <span>·</span> Performance <span>·</span> Power <span>·</span> Thermal</p>
+      <div className="home-workflow" aria-label="RigLab workflow">
+        <button type="button" onClick={() => onNavigate('hardware')}><span>01</span><strong>Research parts</strong><small>Hardware database</small></button>
+        <button type="button" onClick={() => onNavigate('builder')}><span>02</span><strong>Build a system</strong><small>Compatibility and power</small></button>
+        <button type="button" onClick={() => onNavigate('fps')}><span>03</span><strong>Analyze tradeoffs</strong><small>Performance and bottlenecks</small></button>
+      </div>
     </section>
 
     <section className="home-section" aria-labelledby="analysis-heading">
